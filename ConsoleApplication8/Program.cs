@@ -14,7 +14,7 @@ namespace ConsoleApplication8
             Console.WriteLine("Enter size:");
             int size = Convert.ToInt32(Console.ReadLine());
 
-            int bombCount = InputBombCount(size);
+            int bombCount = size * 15 / 100;
 
             Cell[,] array = CreateArray(size);
 
@@ -62,7 +62,7 @@ namespace ConsoleApplication8
             return false;
         }
 
-        private static int InputBombCount(int size)
+       /* private static int InputBombCount(int size)
         {
             int bombCount;
             bool normalBombCount = false;
@@ -80,7 +80,7 @@ namespace ConsoleApplication8
             }
             while (!normalBombCount);
             return bombCount;
-        }
+        }*/
 
         public static void ArrangeBombs(Cell[,] array, int bombCount)
         {
