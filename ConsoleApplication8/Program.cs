@@ -20,10 +20,7 @@ namespace ConsoleApplication8
 
             ArrangeBombs(array, bombCount);
             CountBombs(array);
-
-           
-
-
+            
             Console.WriteLine("The game started");
             PrintArray(array, false);
 
@@ -213,6 +210,12 @@ namespace ConsoleApplication8
         {
             for (int i = 0; i < array.GetLength(0); i++)
             {
+                Console.Write("---");
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
                     if (array[i, j].IsOpen)
@@ -242,10 +245,15 @@ namespace ConsoleApplication8
                         }
                     }
 
+
                 }
                 Console.WriteLine();
             }
-
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                Console.Write("---");
+            }
+            Console.WriteLine();
         }
 
 
