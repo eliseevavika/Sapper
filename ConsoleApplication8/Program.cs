@@ -14,13 +14,13 @@ namespace ConsoleApplication8
             Console.WriteLine("Enter size:");
             int size = Convert.ToInt32(Console.ReadLine());
 
-            int bombCount = size * size* 15 / 100;
+            int bombCount = size * size * 15 / 100;
 
             Cell[,] array = CreateArray(size);
 
             ArrangeBombs(array, bombCount);
             CountBombs(array);
-            
+
             Console.WriteLine("The game started");
             PrintArray(array, false);
 
@@ -84,7 +84,7 @@ namespace ConsoleApplication8
 
         public static void CountBombs(Cell[,] array)
         {
-         
+
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -159,15 +159,15 @@ namespace ConsoleApplication8
                         }
 
                         array[i, j].Value = count;
-                        
+
                     }
 
-                 
+
                 }
 
-                
+
             }
-          
+
         }
 
         public static Cell[,] CreateArray(int size)
@@ -199,7 +199,7 @@ namespace ConsoleApplication8
             {
                 i--;
                 j--;
-                Opener.Open(array,i,j);
+                Opener.Open(array, i, j);
             }
 
             return array[i, j];
@@ -208,7 +208,7 @@ namespace ConsoleApplication8
 
         public static void PrintArray(Cell[,] array, bool showBombs)
         {
-            for (int i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < array.GetLength(0)+1; i++)
             {
                 Console.Write("---");
             }
@@ -216,23 +216,28 @@ namespace ConsoleApplication8
 
             for (int i = 0; i < array.GetLength(0); i++)
             {
+                Console.Write("|");
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
+
                     if (array[i, j].IsOpen)
                     {
+                       
                         if (array[i, j].Value == 9)
                         {
                             Console.Write(" " + '@' + " ");
                         }
-                        else if(array[i, j].Value == 0)
+                        else if (array[i, j].Value == 0)
                         {
-                            Console.Write("   "); 
+                            Console.Write("   ");
                         }
-                        else 
+                        else
                         {
                             Console.Write(" " + array[i, j].Value + " ");
                         }
+                       
                     }
+
                     else
                     {
                         if (showBombs && array[i, j].Value == 9)
@@ -243,13 +248,16 @@ namespace ConsoleApplication8
                         {
                             Console.Write(" " + '*' + " ");
                         }
-                    }
 
+                    }
+                   
 
                 }
-                Console.WriteLine();
+                Console.WriteLine("|");
+                
             }
-            for (int i = 0; i < array.GetLength(0); i++)
+
+            for (int i = 0; i < array.GetLength(0)+1; i++)
             {
                 Console.Write("---");
             }
