@@ -14,12 +14,15 @@ namespace ConsoleApplication8
             Console.WriteLine("Enter size:");
             int size = Convert.ToInt32(Console.ReadLine());
 
-            int bombCount = size * 15 / 100;
+            int bombCount = size * size* 15 / 100;
 
             Cell[,] array = CreateArray(size);
 
             ArrangeBombs(array, bombCount);
             CountBombs(array);
+
+           
+
 
             Console.WriteLine("The game started");
             PrintArray(array, false);
@@ -62,26 +65,6 @@ namespace ConsoleApplication8
             return false;
         }
 
-       /* private static int InputBombCount(int size)
-        {
-            int bombCount;
-            bool normalBombCount = false;
-
-            do
-            {
-                Console.WriteLine("Enter count of bombs:");
-                bombCount = Convert.ToInt32(Console.ReadLine());
-                normalBombCount = bombCount <= size * size;
-                if (!normalBombCount)
-                {
-                    Console.WriteLine("Quantity of bombs over the field size");
-                }
-
-            }
-            while (!normalBombCount);
-            return bombCount;
-        }*/
-
         public static void ArrangeBombs(Cell[,] array, int bombCount)
         {
             Random random = new Random();
@@ -101,8 +84,10 @@ namespace ConsoleApplication8
             }
 
         }
+
         public static void CountBombs(Cell[,] array)
         {
+         
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -177,13 +162,16 @@ namespace ConsoleApplication8
                         }
 
                         array[i, j].Value = count;
+                        
                     }
+
+                 
                 }
 
-
+                
             }
+          
         }
-
 
         public static Cell[,] CreateArray(int size)
         {
@@ -206,19 +194,20 @@ namespace ConsoleApplication8
             int i = Convert.ToInt32(Console.ReadLine());
             int j = Convert.ToInt32(Console.ReadLine());
 
-            if (i >= array.Length || j >= array.Length || i < 0 || j < 0)
+            if (i >= array.Length || j >= array.Length || i <= 0 || j <= 0)
             {
                 Console.WriteLine("Wrong indexes");
             }
             else
             {
-                array[i, j].IsOpen = true;
+                i--;
+                j--;
+                Opener.Open(array,i,j);
             }
 
             return array[i, j];
 
         }
-
 
         public static void PrintArray(Cell[,] array, bool showBombs)
         {
@@ -262,14 +251,3 @@ namespace ConsoleApplication8
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-

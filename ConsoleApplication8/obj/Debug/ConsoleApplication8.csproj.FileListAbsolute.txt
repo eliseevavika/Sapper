@@ -4,3 +4,9 @@ C:\Users\Виктория\Documents\Visual Studio 2015\Projects\ConsoleApplicati
 C:\Users\Виктория\Documents\Visual Studio 2015\Projects\ConsoleApplication8\ConsoleApplication8\obj\Debug\ConsoleApplication8.csprojResolveAssemblyReference.cache
 C:\Users\Виктория\Documents\Visual Studio 2015\Projects\ConsoleApplication8\ConsoleApplication8\obj\Debug\ConsoleApplication8.exe
 C:\Users\Виктория\Documents\Visual Studio 2015\Projects\ConsoleApplication8\ConsoleApplication8\obj\Debug\ConsoleApplication8.pdb
+D:\projects\Sapper\ConsoleApplication8\bin\Debug\ConsoleApplication8.exe.config
+D:\projects\Sapper\ConsoleApplication8\bin\Debug\ConsoleApplication8.exe
+D:\projects\Sapper\ConsoleApplication8\bin\Debug\ConsoleApplication8.pdb
+D:\projects\Sapper\ConsoleApplication8\obj\Debug\ConsoleApplication8.csprojResolveAssemblyReference.cache
+D:\projects\Sapper\ConsoleApplication8\obj\Debug\ConsoleApplication8.exe
+D:\projects\Sapper\ConsoleApplication8\obj\Debug\ConsoleApplication8.pdb
