@@ -232,7 +232,11 @@ namespace ConsoleApplication8
                         {
                             Console.Write(" " + '@' + " ");
                         }
-                        else
+                        else if(array[i, j].Value == 0)
+                        {
+                            Console.Write("   "); 
+                        }
+                        else 
                         {
                             Console.Write(" " + array[i, j].Value + " ");
                         }
