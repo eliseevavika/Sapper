@@ -25,17 +25,16 @@ namespace ConsoleApplication8
             PrintArray(array, false);
 
             bool gameContinue = true;
-            int openCellCount = 0;
             while (gameContinue)
             {
 
                 Cell cell = InputCell(array);
-                openCellCount++;
+                
                 PrintArray(array, false);
 
                 if (cell.Value != 9)
                 {
-                    gameContinue = !IsWin(openCellCount, size, bombCount);
+                    gameContinue = !IsWin(array, bombCount);
                 }
                 else
                 {
@@ -51,9 +50,9 @@ namespace ConsoleApplication8
             Console.ReadLine();
         }
 
-        public static bool IsWin(int openCellCount, int size, int bombCount)
+        public static bool IsWin(Cell[,] array, int bombCount)
         {
-            if (openCellCount == size * size - bombCount)
+            if (CountOpenedCell(array) == array.GetLength(0) * array.GetLength(1) - bombCount)
             {
                 Console.WriteLine("You win!!!");
                 return true;
@@ -200,10 +199,26 @@ namespace ConsoleApplication8
                 i--;
                 j--;
                 Opener.Open(array, i, j);
+
             }
 
             return array[i, j];
 
+        }
+        public static int CountOpenedCell(Cell[,] array)
+        {
+            int result = 0;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if (array[i, j].IsOpen)
+                    {
+                        result++;
+                    }
+                }
+            }
+            return result;
         }
 
         public static void PrintArray(Cell[,] array, bool showBombs)
