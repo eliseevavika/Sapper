@@ -186,22 +186,23 @@ namespace ConsoleApplication8
         public static Cell InputCell(Cell[,] array)
         {
             Console.WriteLine("Enter indexes:");
+           
+            int i, j;
 
-            int i = Convert.ToInt32(Console.ReadLine());
-            int j = Convert.ToInt32(Console.ReadLine());
-
-            if (i >= array.Length || j >= array.Length || i <= 0 || j <= 0)
+            while( !Int32.TryParse(Console.ReadLine(), out i) || i >array.GetLength(0) || i <= 0)
             {
-                Console.WriteLine("Wrong indexes");
+                Console.WriteLine("Wrong index i. enter again");
             }
-            else
+
+            while (!Int32.TryParse(Console.ReadLine(), out j) || j > array.GetLength(1) || j <= 0)
             {
+                Console.WriteLine("Wrong index j. enter again");
+            }
+            
                 i--;
                 j--;
                 Opener.Open(array, i, j);
-
-            }
-
+            
             return array[i, j];
 
         }
